@@ -25,12 +25,30 @@ const ingredients = [
   'Приправы',
 ];
 
+const ingredientsEl = document.querySelector('#ingredients');
 
+// const list = ingredients.map(ingredient => {
+//   const itemEl = document.createElement('li');
+//   itemEl.textContent = ingredient;
+  
+//   return itemEl;
+// })
 
-ingredients.forEach = function (ingredient) {
-    const list = document.createElement('li');
-    return list.textContent = 'ingredient';
+// ingredientsEl.append(...list);
+
+// console.log(ingredientsEl);
+
+const makeListIngredient = ingredients => {
+  return ingredients.map(ingredient => {
+  const itemEl = document.createElement('li');
+  itemEl.textContent = ingredient;
+  
+  return itemEl;
+})
 }
 
-const ingredientsEl = document.querySelector('#ingredients');
-ingredientsEl.appendChild(list);
+const listIngredient = makeListIngredient(ingredients);
+
+ingredientsEl.append(...listIngredient);
+
+console.log(ingredientsEl);
