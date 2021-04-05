@@ -33,12 +33,10 @@ const images = [
 const makeImageGalleryMarkup = ({url, alt}) => {
     return `
     <li>
-      <img url="${url}" alt="${alt}">
+      <img src='${url}' alt='${alt}' width=100%/3>
     </li>
     `;
 }
-
-
 
 const listEl = document.querySelector('#gallery');
 
