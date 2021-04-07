@@ -22,18 +22,37 @@
 
 // <div id="boxes"></div>
 
-const inputEl = document.querySelector('#controls input');
-const buttonEl = document.querySelector('#controls button');
 
-inputEl.addEventListener('blur', onNumberOfItems);
-// buttonEl[0].addEventListener('click', onButtonRenderClick);
-// buttonEl[1].addEventListener('click', onButtonDestroyClick);
+const buttonEl = document.querySelectorAll('#controls button');
+const boxesEl = document.querySelector('#boxes');
 
-function onNumberOfItems(event) {
-    const amount = event.currentTarget.value;
-    console.log(inputNumber)
-};
+buttonEl[0].addEventListener('click', onButtonRenderClick);
+buttonEl[1].addEventListener('click', onButtonDestroyClick);
+
+function onButtonRenderClick() {
+    let amount = +document.querySelector("#controls input").value;
+   
+  createBoxes(amount);
+}
 
 function createBoxes(amount) {
-    const divEl = document.createElement('div');
+  let basicSize = 30;
+  let fragment = document.createDocumentFragment();
+  for (let i = 0; i < amount; i++) {
+    let size = basicSize + i * 10;
+    let div = document.createElement("div");
+    div.style.cssText = `width: ${size}px; height: ${size}px; background-color: rgba( ${random()} , ${random()} , ${random()} )`;
+    fragment.appendChild(div);
+  }
+  boxes.appendChild(fragment);
 }
+
+function onButtonDestroyClick() {
+  boxesEl.innerHTML = "";
+}
+
+function random() {
+  return Math.floor(Math.random() * 256);
+}
+
+
