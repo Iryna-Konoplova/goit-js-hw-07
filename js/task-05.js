@@ -13,6 +13,6 @@ nameInput.addEventListener('input', onInputChange);
 
 function onInputChange(event) {
     
-    const inputText = event.currentTarget.value;
+    const inputText = event.currentTarget.value === ''? 'незнакомец': event.currentTarget.value;
     nameOutput.textContent = inputText;
 };
